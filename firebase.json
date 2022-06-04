@@ -8,6 +8,7 @@
       "**/.*",
       "tool",
       "src",
+      "src_ja",
       "**/node_modules/**"
     ],
     "rewrites": [],

@@ -64,7 +64,7 @@ serve:
 	bundle exec jekyll serve \
 		--host ${SITE_HOST} \
 		--port ${SITE_PORT} \
-		--config _config.yml,_config_dev.yml \
+		--config _config_ja.yml,_config_dev.yml \
 		--livereload \
 		--incremental \
 		--trace
@@ -136,7 +136,7 @@ check-links:
 
 FLUTTER_BRANCH ?= stable
 TEST_TARGET_CHANNEL ?= stable
-BUILD_CONFIGS ?= _config.yml
+BUILD_CONFIGS ?= _config_ja.yml
 BUILD_COMMIT := $(shell git rev-parse --short HEAD)
 BUILD_TAG = fltbuild
 BUILD_NAME = tmpbuild
@@ -215,7 +215,7 @@ endif
 # Usage: `make stage STAGE_NAME=foo`
 STAGE_NAME ?= docs
 stage:
-	make build BUILD_CONFIGS=_config.yml,_config_stage.yml
+	make build BUILD_CONFIGS=_config_ja.yml,_config_stage.yml
 	firebase hosting:channel:deploy ${STAGE_NAME} \
 		--project ${FIREBASE_ALIAS} \
 		--token ${FIREBASE_TOKEN}
@@ -227,7 +227,7 @@ stage:
 
 # Clean all caches, and test/build files
 clean:
-	rm -rf _site .jekyll* src/.jekyll* *.log tmp example.g .dart_tool
+	rm -rf _site .jekyll* src_ja/.jekyll* *.log tmp example.g .dart_tool
 
 # Helpful to reinstall all Ruby packages from inside container
 reinstall:

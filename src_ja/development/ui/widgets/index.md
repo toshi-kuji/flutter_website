@@ -1,12 +1,19 @@
 ---
-title: Widget catalog
-description: A catalog of some of Flutter's rich set of widgets.
-short-title: Widgets
+# title: Widget catalog
+title: ウィジェットカタログ
+# description: A catalog of some of Flutter's rich set of widgets.
+description: Flutter の代表的なウィジェットをカテゴリー別に分けたカタログ。
+# short-title: Widgets
+short-title: ウィジェット
 ---
 
-Create beautiful apps faster with Flutter's collection of visual, structural,
+<!-- Create beautiful apps faster with Flutter's collection of visual, structural,
 platform, and interactive widgets. In addition to browsing widgets by category,
-you can also see all the widgets in the [widget index][].
+you can also see all the widgets in the [widget index][]. -->
+Flutter の多種多様なウィジェットを使って美しいアプリをスピーディに開発しましょう。
+ビジュアル、構造、プラットフォーム、インタラクティブ性など、それぞれの目的に特化したウィジェットがそろっています。
+こちらではカテゴリー別にウィジェットを閲覧することができます。
+すべてを一覧で閲覧する場合は [ウィジェット目録][] をご利用ください。
 
 <div class="card-deck card-deck--responsive">
 {% assign categories = site.data.catalog.index | sort: 'name' -%}
@@ -24,4 +31,4 @@ you can also see all the widgets in the [widget index][].
 </div>
 
 
-[widget index]: {{site.url}}/reference/widgets
+[ウィジェット目録]: {{site.url}}/reference/widgets

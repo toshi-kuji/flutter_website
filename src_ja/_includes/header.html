@@ -43,13 +43,26 @@
                href="{{site.main-url}}/multi-platform" 
                role="button" data-toggle="dropdown" 
                aria-haspopup="true" aria-expanded="false">
-               Multi-Platform
+               <!-- Multi-Platform -->
+               マルチプラットフォーム
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{site.main-url}}/multi-platform/mobile">Mobile</a>
-              <a class="dropdown-item" href="{{site.main-url}}/multi-platform/web">Web</a>
-              <a class="dropdown-item" href="{{site.main-url}}/multi-platform/desktop">Desktop</a>
-              <a class="dropdown-item" href="{{site.main-url}}/multi-platform/embedded">Embedded</a>
+              <a class="dropdown-item" href="{{site.main-url}}/multi-platform/mobile">
+                <!-- Mobile -->
+                モバイル
+              </a>
+              <a class="dropdown-item" href="{{site.main-url}}/multi-platform/web">
+                <!-- Web -->
+                ウェブ
+              </a>
+              <a class="dropdown-item" href="{{site.main-url}}/multi-platform/desktop">
+                <!-- Desktop -->
+                デスクトップ
+              </a>
+              <a class="dropdown-item" href="{{site.main-url}}/multi-platform/embedded">
+                <!-- Embedded -->
+                組み込み機器
+              </a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -57,12 +70,21 @@
                href="{{site.main-url}}/development"
                role="button" data-toggle="dropdown" 
                aria-haspopup="true" aria-expanded="false">
-               Development
+               <!-- Development -->
+               開発
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{site.main-url}}/learn">Learn</a>
-              <a class="dropdown-item" href="https://pub.dev/flutter/favorites" target="_blank">Flutter Favorites</a>
-              <a class="dropdown-item" href="https://pub.dev/" target="_blank">Packages</a>
+              <a class="dropdown-item" href="{{site.main-url}}/learn">
+                <!-- Learn -->
+                Flutter を学ぶ
+              </a>
+              <a class="dropdown-item" href="https://pub.dev/flutter/favorites" target="_blank">
+                Flutter Favorites
+              </a>
+              <a class="dropdown-item" href="https://pub.dev/" target="_blank">
+                <!-- Packages -->
+                パッケージリポジトリ
+              </a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -70,16 +92,29 @@
                href="{{site.main-url}}/ecosystem"
                role="button" data-toggle="dropdown" 
                aria-haspopup="true" aria-expanded="false">
-               Ecosystem
+               <!-- Ecosystem -->
+               エコシステム
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{site.main-url}}/community">Community</a>
-              <a class="dropdown-item" href="{{site.main-url}}/events">Events</a>
-              <a class="dropdown-item" href="{{site.main-url}}/monetization">Monetization</a>
+              <a class="dropdown-item" href="{{site.main-url}}/community">
+                <!-- Community -->
+                コミュニティ
+              </a>
+              <a class="dropdown-item" href="{{site.main-url}}/events">
+                <!-- Events -->
+                イベント
+              </a>
+              <a class="dropdown-item" href="{{site.main-url}}/monetization">
+                <!-- Monetization -->
+                収益化
+              </a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{site.main-url}}/showcase">Showcase</a>
+            <a class="nav-link" href="{{site.main-url}}/showcase">
+              <!-- Showcase -->
+              導入事例
+            </a>
           </li>
           <li class="nav-item dropdown docs-item">
             <a class="nav-link dropdown-toggle{% if route == '/' %} active{% endif %}"
@@ -87,25 +122,49 @@
                href="/"
                role="button" data-toggle="dropdown" 
                aria-haspopup="true" aria-expanded="false">
-               Docs
+               <!-- Docs -->
+               ドキュメント
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item {% if route == '/' %} active{% endif %}"
-                 href="/whats-new">What's New</a>
+                 href="/whats-new">
+                 <!-- What's New -->
+                 リリース情報
+                </a>
               <a class="dropdown-item {% if route contains '/get-started/editor' %} active{% endif %}"
-                 href="/get-started/editor?tab=androidstudio">Editor Support</a>
+                 href="/get-started/editor?tab=androidstudio">
+                 <!-- Editor Support -->
+                 エディタの設定
+                </a>
               <a class="dropdown-item {% if route contains '/development/tools/hot-reload' %} active{% endif %}"
-                 href="/development/tools/hot-reload">Hot Reload</a>
+                 href="/development/tools/hot-reload">
+                 <!-- Hot Reload -->
+                 ホットリロード
+                </a>
               <a class="dropdown-item {% if route contains '/perf/rendering/ui-performance' %} active{% endif %}"
-                 href="/perf/rendering/ui-performance">Profiling</a>
+                 href="/perf/rendering/ui-performance">
+                 <!-- Profiling -->
+                 プロファイリング
+                </a>
               <a class="dropdown-item {% if route contains '/get-started/install' %} active{% endif %}"
-                 href="/get-started/install">Install Flutter</a>
+                 href="/get-started/install">
+                 <!-- Install Flutter -->
+                 Flutter のインストール
+                </a>
               <a class="dropdown-item {% if route contains '/development/tools/devtools' %} active{% endif %}"
-                 href="/development/tools/devtools/overview">Dev Tools</a>
+                 href="/development/tools/devtools/overview">
+                 Dev Tools
+                </a>
               <a class="dropdown-item {% if route contains '/cookbook' %} active{% endif %}"
-                 href="/cookbook">Cookbook</a>
+                 href="/cookbook">
+                 <!-- Cookbook -->
+                 クックブック
+                </a>
               <a class="dropdown-item {% if route contains '/reference/tutorials' %} active{% endif %}"
-                 href="/reference/tutorials">Tutorials</a>
+                 href="/reference/tutorials">
+                 <!-- Tutorials -->
+                 チュートリアル
+                </a>
             </div>
           </li>
         </ul>
@@ -140,7 +199,9 @@
     {% if page.show-nav-get-started-button -%}
       <a 
         class="site-header__cta btn btn-primary" 
-        href="/get-started/install/">Get started
+        href="/get-started/install/">
+        <!-- Get started -->
+        インストール
       </a>
     {% endif -%}
   </nav>
