@@ -119,9 +119,9 @@ Flutter には UI を構築する上で便利なウィジェットがたくさ�
   `Stack` to position them relative to the top, right, bottom,
   or left edge of the stack. Stacks are based on the web's
   absolute positioning layout model. -->
-: 水平方向・垂直方向のレイアウトに加えて、前後方向のレイアウトが可能になるのが `Stack` ウィジェットです。
-   `Stack` で指定する複数のウィジェットは重なり合う形で順番に描画されます。
-  さらに [`Positioned`][] ウィジェットを使うことで `Stack` 全体の上端・右端・下端・左端からの相対位置をもとに、
+: 水平方向・垂直方向のレイアウトに加えて、前後方向のレイアウトを可能にするのが `Stack` ウィジェットです。
+   `Stack` で指定した複数のウィジェットは順番に重なり合う形で描画されます。
+  さらに [`Positioned`][] ウィジェットを使うことで `Stack` の上端・右端・下端・左端からの相対位置をもとに、
   それぞれのウィジェットを配置することができます。
   ウェブの世界における position:absolute がモデルになっています。
 
@@ -131,14 +131,13 @@ Flutter には UI を構築する上で便利なウィジェットがたくさ�
   background, a border, or a shadow. A `Container` can also have margins,
   padding, and constraints applied to its size. In addition, a
   `Container` can be transformed in three dimensional space using a matrix. -->
-: The `Container` widget lets you create a rectangular visual element.
-  A container can be decorated with a [`BoxDecoration`][], such as a
-  background, a border, or a shadow. A `Container` can also have margins,
-  padding, and constraints applied to its size. In addition, a
-  `Container` can be transformed in three dimensional space using a matrix.
+: 長方形の視覚要素は `Container` ウィジェットで作成します。
+  [`BoxDecoration`][] を使って背景・ボーダー・シャドーなどの要素を修飾したり、
+  マージン・パディング・コンストレイント（サイズの制約）の要素を加えることも可能です。
+  またマトリクス情報を用いて三次元座標への変換を行うこともできます。
 
 <!-- Below are some simple widgets that combine these and other widgets: -->
-Below are some simple widgets that combine these and other widgets:
+以上のウィジェットとその他を組み合わせた簡単なウィジェットの例です。
 
 <?code-excerpt "lib/main_myappbar.dart"?>
 ```run-dartpad:theme-light:mode-flutter:run-false:width-100%:height-600px:split-60:ga_id-starting_code
@@ -147,27 +146,34 @@ import 'package:flutter/material.dart';
 class MyAppBar extends StatelessWidget {
   const MyAppBar({required this.title, super.key});
 
-  // Fields in a Widget subclass are always marked "final".
+  <!-- // Fields in a Widget subclass are always marked "final". -->
+  // Widget のサブクラスのフィールドは常に "final" です。
 
   final Widget title;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 56.0, // in logical pixels
+      <!-- height: 56.0, // in logical pixels -->
+      height: 56.0, // 論理ピクセル
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       decoration: BoxDecoration(color: Colors.blue[500]),
-      // Row is a horizontal, linear layout.
+      <!-- // Row is a horizontal, linear layout. -->
+      // Row は水平方向の連続したレイアウトを担当します。
       child: Row(
-        // <Widget> is the type of items in the list.
+        <!-- // <Widget> is the type of items in the list. -->
+        // <Widget> は配列要素の型を表します。
         children: [
           const IconButton(
             icon: Icon(Icons.menu),
             tooltip: 'Navigation menu',
-            onPressed: null, // null disables the button
+            <!-- onPressed: null, // null disables the button -->
+            onPressed: null, // null でボタンを無効化
           ),
-          // Expanded expands its child
-          // to fill the available space.
+          <!-- // Expanded expands its child -->
+          <!-- // to fill the available space. -->
+          // Expanded は自身が拡張可能な最大の範囲を
+          // 子ウィジェットで埋めることができる。
           Expanded(
             child: title,
           ),
@@ -187,10 +193,13 @@ class MyScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Material is a conceptual piece
-    // of paper on which the UI appears.
+    <!-- // Material is a conceptual piece -->
+    <!-- // of paper on which the UI appears. -->
+    // Material は UI を載せるための
+    // 画用紙のようなものです。
     return Material(
-      // Column is a vertical, linear layout.
+      <!-- // Column is a vertical, linear layout. -->
+      // Column は垂直方向の連続したレイアウトを担当します。
       child: Column(
         children: [
           MyAppBar(
@@ -215,7 +224,8 @@ class MyScaffold extends StatelessWidget {
 void main() {
   runApp(
     const MaterialApp(
-      title: 'My app', // used by the OS task switcher
+      <!-- title: 'My app', // used by the OS task switcher -->
+      title: 'My app', // OS のタスクスイッチャーが使用
       home: SafeArea(
         child: MyScaffold(),
       ),
@@ -224,6 +234,10 @@ void main() {
 }
 ```
 
+<!-- Be sure to have a `uses-material-design: true` entry in the `flutter`
+section of your `pubspec.yaml` file. It allows you to use the predefined
+set of [Material icons][]. It's generally a good idea to include this line
+if you are using the Materials library. -->
 Be sure to have a `uses-material-design: true` entry in the `flutter`
 section of your `pubspec.yaml` file. It allows you to use the predefined
 set of [Material icons][]. It's generally a good idea to include this line
