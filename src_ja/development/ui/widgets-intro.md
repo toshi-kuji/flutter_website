@@ -225,7 +225,7 @@ void main() {
   runApp(
     const MaterialApp(
       <!-- title: 'My app', // used by the OS task switcher -->
-      title: 'My app', // OS のタスクスイッチャーが使用
+      title: 'My app', // OS のタスクスイッチャーが使用する名称
       home: SafeArea(
         child: MyScaffold(),
       ),
