@@ -1,6 +1,8 @@
 ---
-title: Introduction to widgets
-description: Learn about Flutter's widgets.
+# title: Introduction to widgets
+title: ウィジェットとは
+# description: Learn about Flutter's widgets.
+description: Flutter のウィジェットについて学ぶ。
 js:
   - defer: true
     url: https://dartpad.dev/inject_embed.dart.js
@@ -10,26 +12,35 @@ js:
 
 {% assign api = site.api | append: '/flutter' -%}
 
-Flutter widgets are built using a modern framework that takes
+<!-- Flutter widgets are built using a modern framework that takes
 inspiration from [React][]. The central idea is that you build
 your UI out of widgets. Widgets describe what their view
 should look like given their current configuration and state.
 When a widget's state changes, the widget rebuilds its description,
 which the framework diffs against the previous description in order
 to determine the minimal changes needed in the underlying render
-tree to transition from one state to the next.
+tree to transition from one state to the next. -->
+Flutter のウィジェットは [React][] から影響を受けたモダンなフレームワークを使用して作成されています。
+そのウィジェットを組み合わせて UI を構築するのが Flutter の基本です。
+現在の設定と状態をもとにした場合、どのような見た目になるのかを表したものがウィジェットだと言えるでしょう。
+ウィジェットの状態に変化が起こると、それに従ってウィジェットは自身の情報を書き換え、それがレンダーツリーに反映されます。
+このときフレームワークによってウィジェットの情報が差分比較されることで、
+UI の土台となるレンダーツリーへの変更が最小限に抑えられます。
+Flutter ではこのようにしてある状態から別の状態への遷移が行われます。
 
 {{site.alert.note}}
-  If you would like to become better acquainted with Flutter by diving
+  <!-- If you would like to become better acquainted with Flutter by diving
   into some code, check out [basic layout codelab][],
   [building layouts][],
-  and [adding interactivity to your Flutter app][].
+  and [adding interactivity to your Flutter app][]. -->
+  実際のコードに触れながら Flutter を学びたいという方はぜひ [basic layout codelab][]、[building layouts][]、[adding interactivity to your Flutter app][] もチェックしてみてください。
 {{site.alert.end}}
 
 ## Hello world
 
-The minimal Flutter app simply calls the [`runApp()`][]
-function with a widget:
+<!-- The minimal Flutter app simply calls the [`runApp()`][]
+function with a widget: -->
+Flutter アプリはまず [`runApp()`][] 関数を呼び出します。
 
 <?code-excerpt "lib/main.dart"?>
 ```run-dartpad:theme-light:mode-flutter:run-false:width-100%:height-310px:split-60:ga_id-starting_code
@@ -47,7 +58,7 @@ void main() {
 }
 ```
 
-The `runApp()` function takes the given
+<!-- The `runApp()` function takes the given
 [`Widget`][] and makes it the root of the widget tree.
 In this example, the widget tree consists of two widgets,
 the [`Center`][] widget and its child, the [`Text`][] widget.
@@ -55,47 +66,78 @@ The framework forces the root widget to cover the screen,
 which means the text "Hello, world" ends up centered on screen.
 The text direction needs to be specified in this instance;
 when the `MaterialApp` widget is used,
-this is taken care of for you, as demonstrated later.
+this is taken care of for you, as demonstrated later. -->
+この `runApp()` 関数は引数として受け取った [`Widget`][] をウィジェットツリーのルートに置きます。
+この例では [`Center`][] とその子ウィジェットである [`Text`][]
+の2つでウィジェットツリーが構成されています。
+コードを実行すると「Hello, world」が画面中央に表示されますが、
+これは「ルートに置かれたウィジェットは画面全体を覆う」というフレームワークのルールによるものです。
+また `textDirection` ではテキストの方向を指定していますが、このあとご紹介する `MaterialApp`
+ウィジェットを使用する場合は自動的に処理されるため、今回のように指定する必要はありません。
 
-When writing an app, you'll commonly author new widgets that
+<!-- When writing an app, you'll commonly author new widgets that
 are subclasses of either [`StatelessWidget`][] or [`StatefulWidget`][],
 depending on whether your widget manages any state.
 A widget's main job is to implement a [`build()`][] function,
 which describes the widget in terms of other, lower-level widgets.
 The framework builds those widgets in turn until the process
 bottoms out in widgets that represent the underlying [`RenderObject`][],
-which computes and describes the geometry of the widget.
+which computes and describes the geometry of the widget. -->
+Flutter アプリのコードを書くときは [`StatelessWidget`][] もしくは [`StatefulWidget`][]
+クラスを継承したクラスでウィジェットを作成していくのが基本の流れです。
+（ウィジェットが状態を管理しない場合は前者、管理する場合は後者）
+このときクラスに実装する [`build()`][] 関数で指定するウィジェットは他の下位レベルのウィジェットで使用されます。
+フレームワークはこれらのウィジェットをプロセスの終わりまで順に構築していき、
+最終的に UI の土台となる [`RenderObject`][] が作成されます。
+この [`RenderObject`][] がウィジェットの画面における位置や形状を表しています。
 
-## Basic widgets
+<!-- ## Basic widgets -->
+## 基本のウィジェット
 
-Flutter comes with a suite of powerful basic widgets,
-of which the following are commonly used:
+<!-- Flutter comes with a suite of powerful basic widgets,
+of which the following are commonly used: -->
+Flutter には UI を構築する上で便利なウィジェットがたくさんあります。
+特に以下のウィジェットは基本となるものであり、頻繁に使用します。
 
 **[`Text`][]**
-: The `Text` widget lets you create a run of styled text
-  within your application.
+<!-- : The `Text` widget lets you create a run of styled text
+  within your application. -->
+: `Text` ウィジェットはアプリケーション内に任意のスタイルテキストを表示することができます。
 
 **[`Row`][], [`Column`][]**
-: These flex widgets let you create flexible layouts in
+<!-- : These flex widgets let you create flexible layouts in
   both the horizontal (`Row`) and vertical (`Column`) directions.
   The design of these objects is based on the web's
-  flexbox layout model.
+  flexbox layout model. -->
+: この2つのウィジェットはそれぞれ、水平方向（`Row`）と垂直方向（`Column`）にレイアウトを作成することができます。
+  ウェブの世界における flexbox がモデルになっています。
 
 **[`Stack`][]**
-: Instead of being linearly oriented (either horizontally or vertically),
+<!-- : Instead of being linearly oriented (either horizontally or vertically),
   a `Stack` widget lets you place widgets on top of each other in paint order.
   You can then use the [`Positioned`][] widget on children of a
   `Stack` to position them relative to the top, right, bottom,
   or left edge of the stack. Stacks are based on the web's
-  absolute positioning layout model.
+  absolute positioning layout model. -->
+: 水平方向・垂直方向のレイアウトに加えて、前後方向のレイアウトが可能になるのが `Stack` ウィジェットです。
+   `Stack` で指定する複数のウィジェットは重なり合う形で順番に描画されます。
+  さらに [`Positioned`][] ウィジェットを使うことで `Stack` 全体の上端・右端・下端・左端からの相対位置をもとに、
+  それぞれのウィジェットを配置することができます。
+  ウェブの世界における position:absolute がモデルになっています。
 
 **[`Container`][]**
+<!-- : The `Container` widget lets you create a rectangular visual element.
+  A container can be decorated with a [`BoxDecoration`][], such as a
+  background, a border, or a shadow. A `Container` can also have margins,
+  padding, and constraints applied to its size. In addition, a
+  `Container` can be transformed in three dimensional space using a matrix. -->
 : The `Container` widget lets you create a rectangular visual element.
   A container can be decorated with a [`BoxDecoration`][], such as a
   background, a border, or a shadow. A `Container` can also have margins,
   padding, and constraints applied to its size. In addition, a
   `Container` can be transformed in three dimensional space using a matrix.
 
+<!-- Below are some simple widgets that combine these and other widgets: -->
 Below are some simple widgets that combine these and other widgets:
 
 <?code-excerpt "lib/main_myappbar.dart"?>
